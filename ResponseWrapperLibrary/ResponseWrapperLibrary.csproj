@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>AuthLibrary</PackageId>
+    <PackageProjectUrl>https://github.com/grayjunzi/learn-net-microservices</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>GrayJunZi</Authors>
+    <Title>Response Wrapper Library</Title>
+    <Description>This package include response wrappers that centralize responses from service.</Description>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+
+</Project>
