@@ -23,7 +23,7 @@ public static class ResponseWrapperExtension
     public static async Task<ResponseWrapper> ToResponse(this HttpResponseMessage httpResponseMessage)
     {
         var response = await httpResponseMessage.Content.ReadAsStringAsync();
-        var result = JsonSerializer.Deserialize<ResponseWrapper<T>>(response, _jsonSerializerOptions.Value);
+        var result = JsonSerializer.Deserialize<ResponseWrapper>(response, _jsonSerializerOptions.Value);
 
         return result;
     }

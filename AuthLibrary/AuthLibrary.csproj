@@ -3,14 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>AuthLibrary</PackageId>
-    <PackageProjectUrl>https://github.com/grayjunzi/learn-net-microservices</PackageProjectUrl>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/grayjunzi/learn-dotnet-microservices</PackageProjectUrl>
     <Authors>GrayJunZi</Authors>
-    <Title>Authentication Library</Title>
-    <Description>This package include common permission based Authentication.</Description>
+    <Title>AuthLibrary</Title>
+    <Description></Description>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 

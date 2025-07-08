@@ -1,7 +1,6 @@
-﻿namespace AuthLibrary.Constants.Authentication
+﻿namespace AuthLibrary.Constants.Authentication;
+
+public static class AppRoleGroup
 {
-    public static class AppRoleGroup
-    {
-        public const string SystemAccess = nameof(SystemAccess);
-    }
+    public const string SystemAccess = nameof(SystemAccess);
 }

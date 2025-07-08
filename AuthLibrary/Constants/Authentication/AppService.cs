@@ -1,7 +1,6 @@
-﻿namespace AuthLibrary.Constants.Authentication
+﻿namespace AuthLibrary.Constants.Authentication;
+
+public static class AppService
 {
-    public static class AppService
-    {
-        public const string Identity = nameof(Identity);
-    }
+    public const string Identity = nameof(Identity);
 }

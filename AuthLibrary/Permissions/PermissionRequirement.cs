@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace AuthLibrary.Permissions
-{
-    public class PermissionRequirement : IAuthorizationRequirement
-    {
-        public string Permission { get; set; }
+namespace AuthLibrary.Permissions;
 
-        public PermissionRequirement(string permission)
-        {
-            Permission = permission;
-        }
+public class PermissionRequirement : IAuthorizationRequirement
+{
+    public string Permission { get; set; }
+
+    public PermissionRequirement(string permission)
+    {
+        Permission = permission;
     }
 }

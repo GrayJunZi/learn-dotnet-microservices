@@ -1,13 +1,12 @@
 ﻿using AuthLibrary.Constants.Authentication;
 using Microsoft.AspNetCore.Authorization;
 
-namespace AuthLibrary.Attributes
+namespace AuthLibrary.Attributes;
+
+public class MustHavePermissionAttribute : AuthorizeAttribute
 {
-    public class MustHavePermissionAttribute : AuthorizeAttribute
+    public MustHavePermissionAttribute(string service, string feature, string action)
     {
-        public MustHavePermissionAttribute(string service, string feature, string action)
-        {
-            Policy = AppPermission.NameFor(service, feature, action);
-        }
+        Policy = AppPermission.NameFor(service, feature, action);
     }
 }
