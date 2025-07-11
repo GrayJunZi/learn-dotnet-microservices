@@ -1,0 +1,8 @@
+@Gateway_HostAddress = http://localhost:5125
+
+GET {{Gateway_HostAddress}}/auth/login
+Accept: application/json
+Method: POST
+Body: { "username": "admin@admin.com", "password": "P@ssw0rd@123" }
+
+###

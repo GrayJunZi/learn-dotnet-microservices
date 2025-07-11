@@ -60,7 +60,7 @@ namespace WebAPI.Extensions
                 {
                     configureOptions.RequireHttpsMetadata = false;
                     configureOptions.SaveToken = true;
-                    configureOptions.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    configureOptions.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = true,
