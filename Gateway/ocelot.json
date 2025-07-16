@@ -51,6 +51,132 @@
           "Port": 7233
         }
       ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/brands/add/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/brands/add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/brands/update/",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/brands/update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/products/add/",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/products/add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/products/update/",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/products/update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/products/delete/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/products/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/products/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/products/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/products/all",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/products/all",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7052
+        }
+      ]
     }
   ]
 }

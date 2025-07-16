@@ -32,9 +32,23 @@ public class AppPermissions
 
         new (AppService.Identity,AppFeature.RoleClaims,AppAction.Read,AppRoleGroup.SystemAccess,"Read Role Claims/Permissions"),
         new (AppService.Identity,AppFeature.RoleClaims,AppAction.Update,AppRoleGroup.SystemAccess,"Update Role Claims/Permissions"),
+
+        new (AppService.Product,AppFeature.Brands,AppAction.Create,AppRoleGroup.ProductManagement,"Create Brands"),
+        new (AppService.Product,AppFeature.Brands,AppAction.Read,AppRoleGroup.ProductManagement,"Read Brands", IsBasic: true),
+        new (AppService.Product,AppFeature.Brands,AppAction.Update,AppRoleGroup.ProductManagement,"Update Brands"),
+        new (AppService.Product,AppFeature.Brands,AppAction.Delete,AppRoleGroup.ProductManagement,"Delete Brands"),
+
+        new (AppService.Product,AppFeature.Products,AppAction.Create,AppRoleGroup.ProductManagement,"Create Products"),
+        new (AppService.Product,AppFeature.Products,AppAction.Read,AppRoleGroup.ProductManagement,"Read Products", IsBasic: true),
+        new (AppService.Product,AppFeature.Products,AppAction.Update,AppRoleGroup.ProductManagement,"Update Products"),
+        new (AppService.Product,AppFeature.Products,AppAction.Delete,AppRoleGroup.ProductManagement,"Delete Products"),
+
+        new (AppService.Product,AppFeature.Images,AppAction.Create,AppRoleGroup.ProductManagement,"Create Images"),
+        new (AppService.Product,AppFeature.Images,AppAction.Read,AppRoleGroup.ProductManagement,"Read Images", IsBasic: true),
+        new (AppService.Product,AppFeature.Images,AppAction.Delete,AppRoleGroup.ProductManagement,"Delete Images"),
     ];
 
-    public static IReadOnlyList<AppPermission> AllPermissions { get; } = 
+    public static IReadOnlyList<AppPermission> AllPermissions { get; } =
         new ReadOnlyCollection<AppPermission>(_all);
 
     public static IReadOnlyList<AppPermission> AdminPermissions { get; } =

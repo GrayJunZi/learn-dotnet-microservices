@@ -1,17 +1,82 @@
-# learn dotnet microservices
+# Learn-NET-MicroServices
 
-## Authorization Library
+## 一、介绍
 
-定义身份认证所需要的常量、特性、鉴权类等。
+使用 .NET Core 构建微服务。
 
-## ResponseWrapper Library
+## 二、自定义认证库 AuthLibrary
 
-定义接口返回结构
+(1). Permission Based
 
-## Identity Service
+- Requirements
+- Policy Provider
+- Auth Handler
+- Attribute
 
-实现身份认证接口
+(2). Constants
 
-## API Gateway
+- Service Name
+- Feature Name
+- Action Name
+- Claim Name
+- Permission Name
+- Role Group Name
+- Role Name
 
-使用 Ocelot 来实现网关
+## 三、响应库 ResponseWrapperLibrary
+
+(1). Custom Exceptions
+- Validation
+- Service UnAvailable
+
+(2). Models
+- EventBus Events
+- Shared Models
+- Wrappers
+- Wrapper Extension
+
+## 四、身份认证服务 IdentityService
+
+(1). Features
+
+- Users Management
+- Roles Management
+- Claims Management
+- User Logins
+- Token Generation
+- Publish Events
+
+(2). Key Dependencies
+
+- AspNetCore Identity
+- Response Library
+- Custom Auth Library
+- EFCore
+- SQL Server
+- MediatR
+- FluentValidation
+- Mapster
+- MassTransit
+- ...
+
+## 五、API网关 Gateway
+
+- Ocelot
+
+## 六、产品服务 ProductService
+
+(1). Features
+
+- Product Management
+- Publish Product Events
+
+(2). Key Dependencies
+
+- Response Library
+- Custom Auth Library
+- EFCore
+- SQL Server
+- MediatR
+- FluentValidation
+- Mapster
+- ...

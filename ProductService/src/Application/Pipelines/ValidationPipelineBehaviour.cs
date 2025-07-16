@@ -33,9 +33,3 @@ public class ValidationPipelineBehaviour<TRequest, TResponse> : IPipelineBehavio
         return await next();
     }
 }
-
-
-public interface IValidateSelf
-{
-
-}

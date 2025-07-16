@@ -23,4 +23,6 @@
     <ProjectReference Include="..\ResponseWrapperLibrary\ResponseWrapperLibrary.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties ocelot_1json__JsonSchema=" " /></VisualStudio></ProjectExtensions>
+
 </Project>
