@@ -46,6 +46,10 @@ public class AppPermissions
         new (AppService.Product,AppFeature.Images,AppAction.Create,AppRoleGroup.ProductManagement,"Create Images"),
         new (AppService.Product,AppFeature.Images,AppAction.Read,AppRoleGroup.ProductManagement,"Read Images", IsBasic: true),
         new (AppService.Product,AppFeature.Images,AppAction.Delete,AppRoleGroup.ProductManagement,"Delete Images"),
+
+        new (AppService.Inventory,AppFeature.InventoryItems,AppAction.Update,AppRoleGroup.InventoryManagement,"Update Inventory Items"),
+        new (AppService.Inventory,AppFeature.InventoryItems,AppAction.Read,AppRoleGroup.InventoryManagement,"Read Inventory Items", IsBasic: true),
+        new (AppService.Inventory,AppFeature.InventoryItems ,AppAction.Delete,AppRoleGroup.InventoryManagement,"Delete Inventory Items"),
     ];
 
     public static IReadOnlyList<AppPermission> AllPermissions { get; } =

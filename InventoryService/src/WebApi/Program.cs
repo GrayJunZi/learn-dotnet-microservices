@@ -5,25 +5,16 @@ using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
-
-builder.Services.AddControllers();
-
 builder.Services.AddIdentitySettings();
 builder.Services.AddJwtAuthentication(builder.Services.GetTokenSettings(builder.Configuration));
-
-var cacheSettings = builder.Services.GetCacheSettings(builder.Configuration);
-
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = cacheSettings.ConnectionString;
-});
+builder.Services.AddScalarDocumentation();
 
 builder.Services.ConfigureRabbitMQService(builder.Services.GetRabbitMQSettings(builder.Configuration));
-
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddApplicationPackages();
+
+builder.Services.RegisterNamedHttpClient();
 
 var app = builder.Build();
 
@@ -35,8 +26,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();

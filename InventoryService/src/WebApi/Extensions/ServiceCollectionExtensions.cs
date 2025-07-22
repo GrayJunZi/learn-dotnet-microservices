@@ -5,14 +5,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Polly;
+using Polly.Extensions.Http;
 using ResponseWrapperLibrary.Wrappers;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
+using WebApi.Middleware;
 
 namespace WebApi.Extensions
 {
-    public static  class ServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
         internal static IServiceCollection AddIdentitySettings(this IServiceCollection services)
         {
@@ -26,7 +29,7 @@ namespace WebApi.Extensions
         internal static TokenSettings GetTokenSettings(this IServiceCollection services, IConfiguration configuration)
         {
             var tokenSettingsSection = configuration.GetSection(nameof(TokenSettings));
-            
+
             services.Configure<TokenSettings>(tokenSettingsSection);
 
             return tokenSettingsSection.Get<TokenSettings>();
@@ -35,13 +38,13 @@ namespace WebApi.Extensions
         internal static CacheSettings GetCacheSettings(this IServiceCollection services, IConfiguration configuration)
         {
             var tokenSettingsSection = configuration.GetSection(nameof(CacheSettings));
-            
+
             services.Configure<CacheSettings>(tokenSettingsSection);
 
             return tokenSettingsSection.Get<CacheSettings>();
         }
 
-        internal static RabbitMQSettings GetRabbitMQSettings(this IServiceCollection services, IConfiguration configuration)
+        internal static RabbitMQSettings GetRabbitMQSettings(this IServiceCollection services,IConfiguration configuration)
         {
             var rabbitMQSettingsSection = configuration.GetSection(nameof(RabbitMQSettings));
 
@@ -181,5 +184,36 @@ namespace WebApi.Extensions
             });
             return services;
         }
+
+        internal static IServiceCollection RegisterNamedHttpClient(this IServiceCollection services)
+        {
+            services
+                .AddHttpClient("ProductServiceClient", client =>
+                {
+                    client.BaseAddress = new Uri("http://localhost:7029");
+                })
+                .AddHttpMessageHandler<TokenForwardingHandler>()
+                .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddTransient<TokenForwardingHandler>();
+            services.AddHttpContextAccessor();
+            return services;
+        }
+
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+            => HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .WaitAndRetryAsync(
+                    retryCount: 3,
+                    sleepDurationProvider: retryAttempt =>
+                    {
+                        var waitTime = Math.Pow(2, retryAttempt) * 100;
+                        return TimeSpan.FromMicroseconds(waitTime);
+                    },
+                    onRetry: (outcome,timespan,retryAttempt, context) =>
+                    {
+                        Console.WriteLine($"Retry {retryAttempt} after {timespan.TotalMicroseconds:N0} milliseconds due to {outcome.Result}");
+                    }
+                );
     }
 }

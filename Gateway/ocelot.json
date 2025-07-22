@@ -177,6 +177,96 @@
           "Port": 7052
         }
       ]
+    },
+    {
+      "UpstreamPathTemplate": "/inventory/items/all",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/inventoryitems/all",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7242
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/inventory/items/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/inventoryitems/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7242
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/inventory/items/product/{productId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/inventoryitems/product/{productId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7242
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/items/update",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/inventoryitems/update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7242
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/product/items/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "ForwardedHeaders": {
+        "Authorization": "Authorization"
+      },
+      "DownstreamPathTemplate": "/api/inventoryitems/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7242
+        }
+      ]
     }
   ]
 }

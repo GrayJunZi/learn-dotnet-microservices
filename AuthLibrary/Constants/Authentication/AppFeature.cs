@@ -10,4 +10,6 @@ public static class AppFeature
     public const string Brands = nameof(Brands);
     public const string Products = nameof(Products);
     public const string Images = nameof(Images);
+
+    public const string InventoryItems = nameof(InventoryItems);
 }

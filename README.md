@@ -80,3 +80,6 @@
 - FluentValidation
 - Mapster
 - ...
+
+## 七、库存服务 InventoryService
+
